@@ -24,4 +24,5 @@ urlpatterns = [
     path("signout",views.signout,name="signout"),
     path("aboutus",views.aboutus,name="aboutus"),
     path("donor", views.donor,name="donor"),
+    path("receiver", views.receiver,name="receiver"),
 ]

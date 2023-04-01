@@ -5,21 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
+    <style>
+        body{
+
+            background-color: aliceblue;
+        }
+        .hello {
+          border: 2px outset pink;
+          background-color: #031422;    
+          text-align: center;
+          width: 500px;
+          margin:auto;
+        }
+
+        .but{
+            background-color: rgb(231, 221, 206);
+            margin: 7mm;
+            margin-left: 17mm;
+            width: 6.5cm;
+            height: 1cm;
+            border-radius: 2mm;
+            text-align: center;
+            font-size: large;
+        }
+        .form-control{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+        }
+        label{
+            font-size: large;
+        }
+     </style>
 </head>
-<body>
-    <h3>Log In to your account!</h3>
+<body style="color:rgb(226, 206, 178)">
+    <center><h2 style="color:purple">Fill in your details!</h2></center>
+    
+    <div class="hello">
+    <h3 style="color:rgb(231,221,206)">Log In to your account!</h3>
+  
     <form method="post" action="/signin" class="mb-2">
         {% csrf_token %}
         <div class="form-group">
-            <label for="username">Username</label>
+            <label for="username" style="color:rgb(231,221,206)">Username:</label>
             <input type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username" Required>
         </div>
-        <div class="form-group">
-            <label for="pass1">Password</label>
+        &nbsp;
+       <div class="form-group">
+            <label for="pass1" style="color:rgb(231,221,206)">Password:</label>
             <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Your Password" Required>
         </div>
 
-        <button type="submit" class="btn btn-primary">Log In</button>
-    </form>
+        <pre>
+        
+    <button type="submit" class="but">Log In</button>
+    </pre>
+</form>
+</div>
+
 </body>
 </html>

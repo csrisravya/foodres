@@ -5,50 +5,298 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Bootstrap Example</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  </head>
-  <body class="p-3 m-0 border-0 bd-example">
+    <title>Khana Khazana</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>  
+    <style>
+      .nav {
+          height: 50px;
+          width: 100%;
+          background-color: #031422;
+          position: relative;
+      }
+
+      .nav>.nav-header {
+          display: inline;
+      }
+
+      .nav>.nav-header>.nav-title {
+          display: inline-block;
+          font-size: 22px;
+          color: #fff;
+          font-weight: 550;
+          font-family: Arial, Helvetica, sans-serif;
+          padding: 10px 10px 10px 10px;
+      }
+
+      .nav>.nav-btn {
+          display: none;
+      }
+
+      .nav>.nav-links {
+          display: inline;
+          float: right;
+          font-size: 18px;
+      }
+
+      .nav>.nav-links>ul li a {
+          display: block;
+          padding: 0 8px;
+          color: #fff;
+          line-height: 40px;
+          font-size: 18px;
+          text-decoration: none;
+
+      }
+
+      .nav>.nav-links>ul {
+          padding: 0;
+          margin-top: 5px;
+          list-style: none;
+          position: relative;
+
+      }
+
+      .nav>.nav-links>ul li {
+          display: inline-block;
+          background-color:  #031422;
+
+
+      }
+
+      .nav>.nav-links>ul li:hover {
+          background-color:  #031422;
+          border-radius: 5px;
+      }
+
+      .nav>#nav-check {
+          display: none;
+      }
+
+      .nav .nav-links ul a.icon {
+          margin-left: 80px;
+          margin-right: 10px;
+      }
+
+      .nav .nav-links ul a i {
+          background-color: #fff;
+          border-radius: 50px;
+          padding: 7px;
+          margin-left: 5px;
+      }
+
+
+
+      
+  </style>
+
+</head>
+  <body class="p-3 m-0 border-0 bd-example bg-dark">
 
     <!-- Example Code -->
-    
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="donor.html">Doner</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
+    <div class="nav">
+      <input type="checkbox" id="nav-check">
+      <div class="nav-header">
+          <div class="nav-title">
+              Food Rescue
+          </div>
       </div>
-    </nav>
-    
+      <div class="nav-btn">
+          <label for="nav-check">
+              <span></span>
+              <span></span>
+              <span></span>
+          </label>
+      </div>
+
+      <div class="nav-links">
+          <ul>
+              <li><a href="{% url 'home' %}" >Home</a></li>
+              <li><a href="{% url 'aboutus' %}">About</a></li>
+              <li><a href="{% url 'donor' %}" >Donor</a></li>
+              <li><a href="{% url 'receiver' %}" >Receiver</a></li>
+              <li><a href="#" >Contact</a></li>
+          </ul>
+      </div>
+  </div>
+
+
+
+
+
+
+
+
+
+    <br>    
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/static/img/fod2.png" class="mx-auto d-block w-80" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/img/fod1.jpeg" class="mx-auto d-block w-80" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/img/fod3.jpeg" class="mx-auto d-block w-80" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    <br><br>
+      <div class="container text-center rounded border p-3 mb-3 bg-light">
+        <div class="row">
+          <div class="col">
+          <h1>Who are we?</h1>
+          Welcome to Khana Khazana, where we help ensure that everyone has access to nutritious and safe food. We specialize in managing food programs for various communities, including orphanages, Goshalas (cow sheds) and non-profit organizations. Our goal is to provide food to everyone in need and reduce food waste, while providing delicious and satisfying meals to those in need. We also provide food to cattles.<p>
+            Our team of food experts and nutritionists work together to make sure we help everyone in need. We  source our food from marriages, parties, ceremonies and food banks.
+            We also work with food banks and other organizations to rescue surplus food and distribute it to those in need, reducing food waste and helping to address food insecurity.
+            Our food management programs include menu planning and delivery, ensuring that your organization or community receives healthy and delicious meals that meet your specific needs. 
+        </p><p> At our food management organization, we are committed to making a positive impact on the community and the environment through sustainable food practices. We believe that everyone deserves access to healthy and safe food, and we are dedicated to making that a reality.
+          </p>
+          <p>Contact us today to learn more about our food management programs and how we can help your organization or community. Together, we can make a difference in the lives of those we serve.</p>
+          </div></div>
+      </div>
+      <div class="container text-center rounded border p-3 mb-3 bg-light">
+        <div class="row">
+          <div class="col">
+          <h1>How we work?</h1>
+        During marriages, functions, ceremonies, parties and other huge events a lot of food gets wasted. So we have come up with a way to reduce the wastage of this food.
+        We collect the food wasted in 2 ways. Number 1 the food which is not being touched as in the food which hasnt been served yet. This food is taken and redistributed among orphanages and to people in need. Since this food is not touched by humans its safe to consume for humans. 
+        <p>Number two food which is left in the plates of the people who have finished eating. This kind of food usually goes to the garbage but we can effieciently make us of this food as well. Collect the food and give this to the animal shelter or goshalas.</p>
+        
+                </div></div></div>
     <!-- End Example Code -->
+    <div class="container my-5">
+
+      <!-- Footer -->
+      <footer
+              class="text-center text-lg-start text-white"
+              style="background-color: #1c2331"
+              >
+        <!-- Section: Social media -->
+        <section
+                 class="d-flex justify-content-between p-4"
+                 style="background-color: #6351ce"
+                 >
+          <!-- Left -->
+          <div class="me-5">
+            <span>Get connected with us on social networks:</span>
+          </div>
+          <!-- Left -->
+    
+          <!-- Right -->
+          <div>
+            <a href="" class="text-white me-4">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="text-white me-4">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="text-white me-4">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="text-white me-4">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="text-white me-4">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="" class="text-white me-4">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+    
+        <!-- Section: Links  -->
+        <section class="">
+          <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <!-- Content -->
+                <h6 class="text-uppercase fw-bold">Khana Kazana</h6>
+                <hr
+                    class="mb-4 mt-0 d-inline-block mx-auto"
+                    style="width: 60px; background-color: #7c4dff; height: 2px"
+                    />
+              </div>
+              <!-- Grid column -->
+    
+              
+    
+              <!-- Grid column -->
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold">Useful links</h6>
+                <hr
+                    class="mb-4 mt-0 d-inline-block mx-auto"
+                    style="width: 60px; background-color: #7c4dff; height: 2px"
+                    />
+                <p>
+                  <a href="#!" class="text-white">Your Account</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-white">FAQ</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-white">Connections</a>
+                </p>
+                <p>
+                  <a href="#!" class="text-white">Help</a>
+                </p>
+              </div>
+              <!-- Grid column -->
+    
+              
+              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                <!-- Links -->
+                <h6 class="text-uppercase fw-bold">Contact</h6>
+                <hr
+                    class="mb-4 mt-0 d-inline-block mx-auto"
+                    style="width: 60px; background-color: #7c4dff; height: 2px"
+                    />
+                <p><i class="fas fa-home mr-3"></i> Bangalore ,Karnataka, US</p>
+                <p><i class="fas fa-envelope mr-3"></i> khanakazana@gmail.com</p>
+                <p><i class="fas fa-phone mr-3"></i> + 7894561230</p>
+                <p><i class="fas fa-print mr-3"></i> + 9548922054</p>
+              </div>
+              <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+          </div>
+        </section>
+        <!-- Section: Links  -->
+    
+        <!-- Copyright -->
+        <div
+             class="text-center p-3"
+             style="background-color: rgba(0, 0, 0, 0.2)"
+             >
+          © 2023 Copyright:
+          <a class="text-white" href="https://mdbootstrap.com/"
+             >khanakazana.com</a
+            >
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
+    
+    </div>
+    <!-- End of .container -->
   </body>
 </html>

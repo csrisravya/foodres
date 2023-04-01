@@ -75,3 +75,6 @@ def aboutus(request):
 
 def donor(request):
     return render(request,"authentication/donor.html")
+#<a class="nav-link" href="{% url 'donor' %}">Doner</a>
+def receiver(request):
+    return render(request,"authentication/receiver.html")

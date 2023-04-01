@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <style>
+        body::before {
+            content: "";
+            background-image: url('{%static 'img/food.jpeg'%}');
+            background-size: cover;
+            opacity: 0.8;
+            position: absolute; /* set the position to absolute */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* set the z-index to -1 so it appears behind other elements */
+        }
+        .centered {
+            text-align: center;
+          }
+        
+          .centerdiv{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #031422;
+            border-radius: 10mm;
+            width: 10cm;
+            height: 13cm;
+            align-items: center;
+          }
+        .heads{
+            background-color: rgb(252, 244, 244);
+        
+            border-radius: 2mm;
+            text-align: center;
+            margin: 1cm;
+            font-size: 9mm;
+        }
+        .but{
+            background-color: rgb(231, 221, 206);
+            margin: 7mm;
+            margin-left: 17mm;
+            width: 6.5cm;
+            height: 2cm;
+            border-radius: 2mm;
+            text-align: center;
+    
+        }
+        .but:hover{
+
+        }
+        a{
+
+            text-decoration:none;
+            color: black;
+            font-size: 8mm;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
+            }
+    </style>
 </head>
 <body>
 
@@ -17,8 +76,9 @@
   </button>
     </div>
     {% endfor %}
+    <div class="centerdiv">
 
-    <h3>Welcome to Khana Khazana !!</h3>
+    <h3 class="heads">Welcome to Khana Khazana</h3>
 
     <!--Sending the greetings hello username through the dictionary created in signin function in views.py-->
     {% if user.is_authenticated %}
@@ -26,10 +86,11 @@
     <h4>You're successfully logged in!</h4>
     <button type="submit"><a href="/signout">SignOut</a></button>
     {% else %}
-    <button type="submit"><a href="/signup1">SignUp</a></button>
+    <button class="but" type="submit"><a href="/signup1">SignUp</a></button>
     <br/>
     <br/>
-    <button type="submit"><a href="/signin">SignIn</a></button>
+    <button class="but" type="submit"><a href="/signin" >SignIn</a></button>
     {% endif %}
+    </div>
 </body>
 </html>
