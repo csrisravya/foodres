@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from authentication.models import Order
 
 # Create your views here.
 def home(request):
@@ -76,5 +77,32 @@ def aboutus(request):
 def donor(request):
     return render(request,"authentication/donor.html")
 #<a class="nav-link" href="{% url 'donor' %}">Doner</a>
+
 def receiver(request):
-    return render(request,"authentication/receiver.html")
+    if request.method == 'POST':
+        name = request.POST['name']
+        phone_number = request.POST['phone_number']
+        address = request.POST['address']
+        landmark = request.POST['landmark']
+        city = request.POST['city']
+        state = request.POST['state']
+        pincode = request.POST['pincode']
+        food_capacity_needed = request.POST['food_capacity_needed']
+        food_preference = request.POST['food_preference']
+        
+        order = Order(
+            name=name,
+            phone_number=phone_number,
+            address=address,
+            landmark=landmark,
+            city=city,
+            state=state,
+            pincode=pincode,
+            food_capacity_needed=food_capacity_needed,
+            food_preference=food_preference,
+        )
+        order.save()
+        return redirect('aboutus')
+    else:
+        return render(request,"authentication/receiver.html")
+    

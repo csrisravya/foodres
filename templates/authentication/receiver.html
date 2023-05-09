@@ -208,33 +208,34 @@
     </div><br><br>
 
     <section class="container my-2 bg-dark w-50 text-light p-2">
-        <form class="row g-3 p-3">
+        <form class="row g-3 p-3" action="receiver" method="post">
+            {% csrf_token %}
             <div class="col-md-6">
                 <label for="validationDefault01" class="form-label">Name</label>
-                <input type="text" class="form-control" id="validationDefault01" required>
+                <input type="text" class="form-control" name="name" id="validationDefault01" required>
             </div>
             <div class="col-md-6">
                 <label for="validationDefault02" class="form-label">Phone No</label>
-                <input type="text" class="form-control" id="validationDefault02" required>
+                <input type="text" class="form-control" name="phone_number" id="validationDefault02" required>
             </div>
 
 
 
             <div class="col-8">
                 <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="">
+                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="">
             </div>
             <div class="col-4">
                 <label for="inputAddress2" class="form-label">Landmark</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="">
+                <input type="text" class="form-control" id="inputAddress2" name = "landmark" placeholder="">
             </div>
             <div class="col-md-6">
                 <label for="inputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="inputCity">
+                <input type="text" class="form-control" name="city" id="inputCity">
             </div>
             <div class="col-md-4">
                 <label for="inputState" class="form-label">State</label>
-                <select id="inputState" class="form-select">
+                <select id="inputState" class="form-select" name="state">
                     <option selected>Choose...</option>
                     <option> Andhra Pradesh </option>
                     <option> Arunachal Pradesh </option>
@@ -268,34 +269,34 @@
             </div>
             <div class="col-md-2">
                 <label for="inputZip" class="form-label">Pincode</label>
-                <input type="text" class="form-control" id="inputZip">
+                <input type="text" class="form-control" name="pincode" id="inputZip">
             </div>
 
             <div class="col-12">
                 <div class="col-md-4">
                     <label for="validationDefault01" class="form-label">Food Capacity Needed</label>
-                    <input type="text" class="form-control" id="validationDefault01" required>
+                    <input type="text" class="form-control" name="food_capacity_needed" id="validationDefault01" required>
                 </div>
             </div>
 
             <div class="col-12">Food Preference
                 <div class="form-check col-md-4">
-                    <input class="form-check-input" type="radio" name="foo" id="gridCheck">
+                    <input class="form-check-input" type="radio" name="food_preference" id="gridCheck">
                     <label class="radio-veg" for="gridCheck">Veg</label>
                 </div>
                 <div class="form-check col-md-4">
-                    <input class="form-check-input" type="radio" name="foo" id="gridCheck" >
-                    <label class="radio-veg" for="gridCheck">Non Veg</label>
+                    <input class="form-check-input" type="radio" name="food_preference" id="gridCheck" >
+                    <label class="non-veg" for="gridCheck">Non Veg</label>
                 </div>
                 <div class="form-check col-md-4">
-                    <input class="form-check-input" type="radio" name="foo" id="gridCheck" >
-                    <label class="radio-veg" for="gridCheck">Both</label>
+                    <input class="form-check-input" type="radio" name="food_preference" id="gridCheck" >
+                    <label class="both" for="gridCheck">Both</label>
                 </div>
             </div>
-
+<!--<a href="{% url 'aboutus' %}">-->
             
             <div class="col-12">
-                <button type="submit" class="btn btn-primary"><a href="{% url 'aboutus' %}">Submit</a></button>
+                <button type="submit" class="btn btn-primary">Submit</a></button>
             </div>
         </form>
 
