@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from authentication.models import Order
+from authentication.models import Order,Restaurant
 
 # Create your views here.
 def home(request):
@@ -75,7 +75,26 @@ def aboutus(request):
     return render(request,'authentication/aboutus.html')
 
 def donor(request):
-    return render(request,"authentication/donor.html")
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        phone_no = request.POST.get('phone_no')
+        address = request.POST.get('address')
+        landmark = request.POST.get('landmark')
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        pincode = request.POST.get('pincode')
+        food_type = request.POST.get('food_type')
+        fresh_food_available = request.POST.get('fresh_food_available', False)
+        food_remains_available = request.POST.get('food_remains_available', False)
+        fresh_food_capacity = request.POST.get('fresh_food_capacity', 0)
+        food_remains_capacity = request.POST.get('food_remains_capacity', 0)
+        description = request.POST.get('description', '')
+
+        restaurant = Restaurant(name=name, phone_no=phone_no, address=address, landmark=landmark, city=city, state=state, pincode=pincode, food_type=food_type, fresh_food_available=fresh_food_available, food_remains_available=food_remains_available, fresh_food_capacity=fresh_food_capacity, food_remains_capacity=food_remains_capacity, description=description)
+        restaurant.save()
+        return redirect('aboutus')
+    else:
+        return render(request,"authentication/donor.html")
 #<a class="nav-link" href="{% url 'donor' %}">Doner</a>
 
 def receiver(request):
