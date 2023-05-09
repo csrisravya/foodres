@@ -82,8 +82,7 @@
 
     <!--Sending the greetings hello username through the dictionary created in signin function in views.py-->
     {% if user.is_authenticated %}
-    <h3>Hello {{fname}}!</h3>
-    <h4>You're successfully logged in!</h4>
+    
     <button type="submit"><a href="/signout">SignOut</a></button>
     {% else %}
     <button class="but" type="submit"><a href="/signup1">SignUp</a></button>

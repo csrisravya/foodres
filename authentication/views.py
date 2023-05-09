@@ -83,14 +83,14 @@ def donor(request):
         city = request.POST.get('city')
         state = request.POST.get('state')
         pincode = request.POST.get('pincode')
+        fresh_food = 'Fresh Food' in request.POST.getlist('food_status')
+        food_remains = 'Food Remains' in request.POST.getlist('food_status')
         food_type = request.POST.get('food_type')
-        fresh_food_available = request.POST.get('fresh_food_available', False)
-        food_remains_available = request.POST.get('food_remains_available', False)
         fresh_food_capacity = request.POST.get('fresh_food_capacity', 0)
         food_remains_capacity = request.POST.get('food_remains_capacity', 0)
         description = request.POST.get('description', '')
-
-        restaurant = Restaurant(name=name, phone_no=phone_no, address=address, landmark=landmark, city=city, state=state, pincode=pincode, food_type=food_type, fresh_food_available=fresh_food_available, food_remains_available=food_remains_available, fresh_food_capacity=fresh_food_capacity, food_remains_capacity=food_remains_capacity, description=description)
+#fresh_food_available=fresh_food_available, food_remains_available=food_remains_available
+        restaurant = Restaurant(name=name, phone_no=phone_no, address=address, landmark=landmark, city=city, state=state, pincode=pincode, food_type=food_type, fresh_food_capacity=fresh_food_capacity,fresh_food=fresh_food,food_remains=food_remains,food_remains_capacity=food_remains_capacity, description=description)
         restaurant.save()
         return redirect('aboutus')
     else:
@@ -107,7 +107,7 @@ def receiver(request):
         state = request.POST['state']
         pincode = request.POST['pincode']
         food_capacity_needed = request.POST['food_capacity_needed']
-        food_preference = request.POST['food_preference']
+        food_type = request.POST.get('food_type')
         
         order = Order(
             name=name,
@@ -118,7 +118,7 @@ def receiver(request):
             state=state,
             pincode=pincode,
             food_capacity_needed=food_capacity_needed,
-            food_preference=food_preference,
+            food_type=food_type
         )
         order.save()
         return redirect('aboutus')

@@ -12,11 +12,23 @@ class Order(models.Model):
     state = models.CharField(max_length=100)
     pincode = models.CharField(max_length=10)
     food_capacity_needed = models.IntegerField(validators=[MinValueValidator(1)])
-    FOOD_PREFERENCE_CHOICES = (
-    ('V', 'Veg'),
-    ('N', 'Non Veg'),
-    ('B', 'Both'),)
-    food_preference = models.CharField(max_length=1, choices=FOOD_PREFERENCE_CHOICES)
+    
+    VEG = 'Veg'
+    NON_VEG = 'Non Veg'
+    BOTH = 'Both'
+
+    FOOD_TYPE_CHOICES = (
+        (VEG, 'Veg'),
+        (NON_VEG, 'Non Veg'),
+        (BOTH, 'Both'),
+    )
+
+    food_type = models.CharField(
+        max_length=10,
+        choices=FOOD_TYPE_CHOICES,
+        default=VEG,
+    )
+    
 
 
 class Restaurant(models.Model):
@@ -27,9 +39,25 @@ class Restaurant(models.Model):
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
     pincode = models.CharField(max_length=10)
-    food_type = models.CharField(max_length=10)
-    fresh_food_available = models.BooleanField(default=False)
-    food_remains_available = models.BooleanField(default=False)
+    
+    VEG = 'Veg'
+    NON_VEG = 'Non Veg'
+    BOTH = 'Both'
+
+    FOOD_TYPE_CHOICES = (
+        (VEG, 'Veg'),
+        (NON_VEG, 'Non Veg'),
+        (BOTH, 'Both'),
+    )
+
+    fresh_food = models.BooleanField(default=False)
+    food_remains = models.BooleanField(default=False)
+    food_type = models.CharField(
+        max_length=10,
+        choices=FOOD_TYPE_CHOICES,
+        default=VEG,
+    )
+
     fresh_food_capacity = models.IntegerField(default=0)
     food_remains_capacity = models.IntegerField(default=0)
     description = models.TextField(blank=True)
